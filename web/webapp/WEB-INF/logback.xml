@@ -28,7 +28,7 @@
         <appender-ref ref="PROJECT" />
     </logger>
 
-    <root level="warn">
+    <root level="debug">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="PROJECT"/>
     </root>

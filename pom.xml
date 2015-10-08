@@ -19,6 +19,36 @@
         <spring.version>4.1.6.RELEASE</spring.version>
     </properties>
 
+
+
+    <build>
+        <finalName>party</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>gbk</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>webapp</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
     <dependencies>
 
         <!--日志系统相关-->
