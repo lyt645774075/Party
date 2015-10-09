@@ -17,11 +17,34 @@ public class PeopleDAOImpl extends BaseDAO implements TemplateDAO<PeopleDO, Peop
 
     private static final String NAMESPACE = "PeopleDAOImpl.";
 
+    @Override
     public List<PeopleDO> queryDOList(PeopleQuery peopleQuery) {
         return getSqlSession().selectList(NAMESPACE + "queryDOList", peopleQuery);
     }
 
+    @Override
     public Integer insertDO(PeopleDO peopleDO) {
         return (Integer) getSqlSession().insert(NAMESPACE + "insertDO", peopleDO);
+    }
+
+
+    @Override
+    public Integer count(PeopleQuery peopleQuery) {
+        return null;
+    }
+
+    @Override
+    public List<?> queryFieldList(PeopleQuery peopleQuery) {
+        return null;
+    }
+
+    @Override
+    public Integer updateDO(PeopleDO peopleDO) {
+        return null;
+    }
+
+    @Override
+    public Integer deleteDO(PeopleDO peopleDO) {
+        return null;
     }
 }

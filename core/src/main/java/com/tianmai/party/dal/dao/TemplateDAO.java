@@ -8,9 +8,17 @@ import java.util.List;
  */
 public interface TemplateDAO <DBOBJECT,QUERY>{
 
+    Integer count(QUERY query);
+
+    List<?> queryFieldList(QUERY query);
+
     List<DBOBJECT> queryDOList(QUERY query);
 
     Integer insertDO(DBOBJECT dbobject);
+
+    Integer updateDO(DBOBJECT dbobject);
+
+    Integer deleteDO(DBOBJECT dbobject);
 
 
 

@@ -6,8 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author yangtao.lyt
@@ -29,6 +31,16 @@ public class PeopleDAOImplTest {
         Integer count = peopleDAO.insertDO(peopleDO);
 
 
+    }
+
+    @Test
+    public void testQueryDOList(){
+        PeopleQuery query = new PeopleQuery();
+        query.setId(1L);
+
+        List<PeopleDO> peopleDOList = peopleDAO.queryDOList(query);
+
+        Assert.isTrue(true);
     }
 
 
