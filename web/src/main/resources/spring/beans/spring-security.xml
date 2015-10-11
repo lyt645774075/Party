@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:beans="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+       <http pattern="/home*" security="none"/>
+       <http pattern="/index.jsp" security="none"/>
+       <http>
+              <intercept-url pattern="/home*" access="isAnonymous"/>
+              <intercept-url pattern="/**" access="hasRole('USER')" />
+              <form-login
+                      login-processing-url="/home"/>
+
+              <logout />
+              <session-management>
+                     <concurrency-control max-sessions="1"/>
+
+              </session-management>
+       </http>
+
+       <authentication-manager>
+
+              <authentication-provider>
+
+                     <password-encoder ref="bcryptEncoder"/>
+                     <user-service>
+
+                            <user name="yangtao.lyt" password="123" authorities="ROLE_USER"/>
+                     </user-service>
+              </authentication-provider>
+
+       </authentication-manager>
+
+       <beans:bean name="bcryptEncoder"
+                   class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+       <global-method-security secured-annotations="enabled"/>
+
+</beans:beans>

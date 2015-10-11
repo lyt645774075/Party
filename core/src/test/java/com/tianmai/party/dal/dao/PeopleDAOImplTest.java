@@ -26,7 +26,10 @@ public class PeopleDAOImplTest {
     @Test
     public void testInsertDO(){
         PeopleDO peopleDO = new PeopleDO();
-        peopleDO.setName("qiuqiu");
+        peopleDO.setName("testpeople");
+        peopleDO.setSex(1);
+        peopleDO.setPhone("18380315288");
+
 
         Integer count = peopleDAO.insertDO(peopleDO);
 

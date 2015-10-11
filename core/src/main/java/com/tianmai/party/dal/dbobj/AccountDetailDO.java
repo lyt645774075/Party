@@ -10,16 +10,12 @@ public class AccountDetailDO {
 
     private Long id;
     private Date gmtCreate;
-    private Date gmtModified;
-
 
     /**
      * people, team , activity
      */
     private Long actionObjectId;
-    private String actionObjectName;
     private String actionObjectType;
-
 
 
     private Integer actionType;
