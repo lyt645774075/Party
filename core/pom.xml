@@ -16,6 +16,12 @@
 
     <artifactId>party-core</artifactId>
 
+    <properties>
+        <hibernate.version>4.3.11.Final</hibernate.version>
+        <hibernate-entitymanager.version>${hibernate.version}</hibernate-entitymanager.version>
+        <hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
+    </properties>
+
     <dependencies>
 
 
@@ -65,6 +71,12 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+
 
         <dependency>
             <groupId>commons-dbcp</groupId>
@@ -88,6 +100,8 @@
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.2</version>
         </dependency>
+
+
     </dependencies>
 
 

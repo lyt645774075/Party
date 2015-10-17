@@ -6,13 +6,13 @@
     <resultMap id="resultMap" type="com.tianmai.party.dal.dbobj.ActivityDO" >
         <id column="id" property="id" />
         <result column="name" property="name"/>
-        <result column="desc" property="desc"/>
+        <result column="description" property="description"/>
         <result column="enable" property="enable"/>
         <result column="begin_time" property="beginTime"/>
         <result column="end_time" property="endTime"/>
         <result column="creator_id" property="creatorId"/>
         <result column="creator_name" property="creatorName"/>
-        <result column="tag_list" property="taglist"/>
+        <result column="tag_list" property="tagList"/>
         <result column="entry_fee" property="entryFee"/>
         <result column="total_expenditure" property="totalExpenditure"/>
         <result column="total_income" property="totalIncome"/>
@@ -21,7 +21,7 @@
     </resultMap>
 
     <sql id="allColumn">
-        id,name,desc,enable,begin_time,end_time,creator_id,creator_name,tag_list,entry_fee,total_expenditure,total_income,gmt_create,gmt_modified
+        id,name,description,enable,begin_time,end_time,creator_id,creator_name,tag_list,entry_fee,total_expenditure,total_income,gmt_create,gmt_modified
     </sql>
 
     <sql id="whereCondition">
@@ -39,7 +39,7 @@
         (
         <include refid="allColumn"/>
         )
-        value (#{id},#{name},#{desc},#{enable},#{beginTime},#{endTime},#{creatorId},#{creatorName},#{taglist},#{entryFee},#{totalExpenditure},#{totalIncome},now(),now())
+        value (#{id},#{name},#{description},#{enable},#{beginTime},#{endTime},#{creatorId},#{creatorName},#{tagList},#{entryFee},#{totalExpenditure},#{totalIncome},now(),now())
 
 
     </insert>

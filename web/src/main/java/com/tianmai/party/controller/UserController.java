@@ -17,24 +17,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/user")
 public class UserController {
 
+
+    private static final String PAGE_PATH_PRE = "screen/user/";
+
     @RequestMapping(method = RequestMethod.GET)
     public String doGet(){
-        return "home";
+        return PAGE_PATH_PRE + "home";
     }
 
-    @RequestMapping(value = "home", method = RequestMethod.GET)
+    @RequestMapping(value = "/home")
     public String doGetHome(){
-        return "home";
+        return PAGE_PATH_PRE + "home";
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String doGetLogin(){
-        return "login";
+        return PAGE_PATH_PRE + "login";
     }
 
-    @RequestMapping(value = "register", method = RequestMethod.GET)
+    @RequestMapping(value = "/register")
     public String doGetRegister(){
-        return "register";
+        return PAGE_PATH_PRE + "register";
     }
 
 

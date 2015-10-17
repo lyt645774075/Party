@@ -1,23 +1,35 @@
 package com.tianmai.party.dal.dbobj;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 /**
  * @author yangtao.lyt
  * @version $Id: ActivityDO, v 0.1 2015-10-08 19:39 yangtao.lyt Exp $
  */
+@Table(name = "activity")
+@Entity
 public class ActivityDO {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    private String id;
-
+    @Temporal(TemporalType.TIMESTAMP)
     private Date gmtCreate;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date gmtModified;
 
     private String name;
 
-    private String desc;
+    private String description;
 
     private Integer enable;
 
@@ -51,20 +63,24 @@ public class ActivityDO {
      *//*
     private Integer canJoin;
 
-    *//**
+    */
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
      * 费用结算策略
      * 是指，活动结束后，如果有多余费用，是否转为团队共享等形式
      *//*
     private Integer feeSettleStrategy;*/
 
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public Date getGmtCreate() {
         return gmtCreate;
@@ -90,12 +106,12 @@ public class ActivityDO {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getEnable() {
@@ -169,4 +185,6 @@ public class ActivityDO {
     public void setTotalIncome(Long totalIncome) {
         this.totalIncome = totalIncome;
     }
+
+
 }

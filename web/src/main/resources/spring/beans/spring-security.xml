@@ -4,36 +4,35 @@
        xmlns:beans="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-       <http pattern="/home*" security="none"/>
-       <http pattern="/index.jsp" security="none"/>
-       <http>
-              <intercept-url pattern="/home*" access="isAnonymous"/>
-              <intercept-url pattern="/**" access="hasRole('USER')" />
-              <form-login
-                      login-processing-url="/home"/>
 
-              <logout />
-              <session-management>
-                     <concurrency-control max-sessions="1"/>
 
-              </session-management>
+    <http pattern="*.js" security="none"/>
+    <http pattern="*.css" security="none"/>
+
+       <http auto-config="true">
+
+           <intercept-url pattern="/user/login*" access="hasRole('ANONYMOUS')"/>
+            <form-login login-page="/user/login" default-target-url="/activity/detail"
+                    login-processing-url="/login.do"
+                    />
+
+
+
+           <intercept-url pattern="/**" access="hasRole('USER')"/>
+
        </http>
 
        <authentication-manager>
+              <authentication-provider  user-service-ref="myService">
+                  <!--<user-service>
+                      <user name="yangtao.lyt@alibaba-inc.com" password="123" authorities="ROLE_USER, ROLE_ANONYMOUS"/>
+                  </user-service>-->
 
-              <authentication-provider>
-
-                     <password-encoder ref="bcryptEncoder"/>
-                     <user-service>
-
-                            <user name="yangtao.lyt" password="123" authorities="ROLE_USER"/>
-                     </user-service>
               </authentication-provider>
-
        </authentication-manager>
 
-       <beans:bean name="bcryptEncoder"
-                   class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-       <global-method-security secured-annotations="enabled"/>
+    <beans:bean id="authorizationListener"
+                class="org.springframework.security.access.event.LoggerListener" />
 
+    <beans:bean id="myService" class="com.tianmai.party.support.MyService"/>
 </beans:beans>

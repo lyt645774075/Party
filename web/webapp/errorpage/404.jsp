@@ -30,14 +30,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home">WithUS</a>
+            <a class="navbar-brand" href="home"><em>WithUS</em></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse navbar-right">
             <ul class="nav navbar-nav">
-                <li><a href="home">home</a></li>
-                <li><a href="login">login in</a></li>
-                <li><a href="register">register</a></li>
-                <li><a href="contact">contact</a></li>
+                <li><a href="home"><em>home</em></a></li>
+                <li><a href="login"><em>login in</em></a></li>
+                <li><a href="register"><em>register</em></a></li>
+                <li><a href="contact"><em>contact</em></a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -61,13 +61,11 @@
 
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
 </body>

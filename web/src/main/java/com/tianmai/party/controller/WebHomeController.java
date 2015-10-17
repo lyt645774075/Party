@@ -18,9 +18,11 @@ public class WebHomeController {
         return "webhome";
     }
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "home")
     public String doGetHome(){
         return "webhome";
     }
+
+
 
 }
