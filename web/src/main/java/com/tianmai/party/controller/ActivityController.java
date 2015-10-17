@@ -42,7 +42,7 @@ public class ActivityController {
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String doGetCreate(){
 
-        return PAGE_PATH_PRE + "activitycreate";
+        return PAGE_PATH_PRE + "activityedit";
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.GET, params = "activityId")
@@ -53,7 +53,7 @@ public class ActivityController {
 
         modelMap.addAttribute("activity", activityBO);
 
-        return PAGE_PATH_PRE + "activitycreate";
+        return PAGE_PATH_PRE + "activityedit";
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, params = "action=createOrUpdate")
