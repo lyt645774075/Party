@@ -18,5 +18,9 @@ public interface ActivityWriteManager {
 
     public ActivityBO updateActivity(ActivityBO activityBO);
 
+    public void auditPassMember(Long activityId, Long userId);
+
+
+
 
 }

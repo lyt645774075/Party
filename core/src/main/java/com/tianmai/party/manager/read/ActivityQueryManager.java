@@ -2,6 +2,7 @@ package com.tianmai.party.manager.read;
 
 import com.tianmai.party.domain.ActivityBO;
 import com.tianmai.party.domain.DetailActivityAccountBO;
+import com.tianmai.party.domain.RelaActivityUserBO;
 
 import java.util.List;
 
@@ -14,5 +15,11 @@ public interface ActivityQueryManager {
     ActivityBO getActivityBOById(Long id);
 
     List<DetailActivityAccountBO> queryAccountBOListByActivityId(Long activityId);
+
+    Integer getDomainRole(Long activityId, Long userId);
+
+    List<RelaActivityUserBO> getAppliedUserList(Long activityId);
+
+    List<RelaActivityUserBO> getMemberList(Long activityId);
 
 }

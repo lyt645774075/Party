@@ -24,12 +24,33 @@
                 <div class="page-header">
                     <h2>${activity.name}<small>（${activity.beginTime} - ${activity.endTime}）</small></h2>
                 </div>
-                <button type="button" class="btn btn-link">
-                    <a href="/activity/modify?activityId=${activity.id}">编辑活动</a>
-                </button>
-                <button type="button" class="btn btn-link">
-                    <a href="/activity/account?activityId=${activity.id}">财务流水</a>
-                </button>
+
+                #if($!activity.currentUserRole == 0)
+                    <button type="button" class="btn btn-link">
+                        <a href="/user/applyJoinIn?activityId=${activity.id}">申请加入</a>
+                    </button>
+                #end
+                #if($!activity.currentUserRole == 1)
+                    审核中
+                #end
+
+                #if($!activity.currentUserRole == 10 || $!activity.currentUserRole == 11)
+                    <button type="button" class="btn btn-link">
+                        <a href="/activity/account?activityId=${activity.id}">财务流水</a>
+                    </button>
+                #end
+                #if($activity.currentUserRole == 11)
+                    <button type="button" class="btn btn-link">
+                        <a href="/activity/modify?activityId=${activity.id}">编辑活动</a>
+                    </button>
+                #end
+                #if($activity.currentUserRole == 11)
+                    <button type="button" class="btn btn-link">
+                        <a href="/activity/adminMember?activityId=${activity.id}">人员管理</a>
+                    </button>
+                #end
+
+
             </div>
 
             <div class="row">
@@ -41,7 +62,7 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">获得者</h3>
+                            <h3 class="panel-title">获奖者</h3>
                         </div>
                         <div class="panel-body">
 
@@ -63,34 +84,17 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">贡献者</h3>
+                            <h3 class="panel-title">资助者</h3>
                         </div>
                         <div class="panel-body">
                             <ul>
-                                <li>
-                                    <a>苏愿</a>
-                                </li>
-                                <li>
-                                    <a>鲁宏伟</a>
-                                </li>
-                                <li>
-                                    Integer molestie lorem at massa
-                                </li>
-                                <li>
-                                    Facilisis in pretium nisl aliquet
-                                </li>
-                                <li>
-                                    Nulla volutpat aliquam velit
-                                </li>
-                                <li>
-                                    Faucibus porta lacus fringilla vel
-                                </li>
-                                <li>
-                                    Aenean sit amet erat nunc
-                                </li>
-                                <li>
-                                    Eget porttitor lorem
-                                </li>
+                                #foreach($!member in $!memberList)
+                                    <li>
+                                        <a href="/user/home?id=$!{member.userId}">$!{member.userName}</a>
+                                    </li>
+                                #end
+
+
                             </ul>
                         </div>
                     </div>

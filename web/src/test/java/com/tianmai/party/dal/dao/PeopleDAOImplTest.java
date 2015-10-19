@@ -1,6 +1,6 @@
 package com.tianmai.party.dal.dao;
 
-import com.tianmai.party.dal.dbobj.PeopleDO;
+import com.tianmai.party.dal.dbobj.UserDO;
 import com.tianmai.party.dal.query.PeopleQuery;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,13 +24,13 @@ public class PeopleDAOImplTest {
 
     @Test
     public void testInsertDO(){
-        PeopleDO peopleDO = new PeopleDO();
-        peopleDO.setName("testpeople");
-        peopleDO.setSex(1);
-        peopleDO.setPhone("18380315288");
+        UserDO userDO = new UserDO();
+        userDO.setName("testpeople");
+        userDO.setSex(1);
+        userDO.setPhone("18380315288");
 
 
-        //Integer count = peopleDAO.insertDO(peopleDO);
+        //Integer count = peopleDAO.insertDO(userDO);
 
 
     }
@@ -40,7 +40,7 @@ public class PeopleDAOImplTest {
         PeopleQuery query = new PeopleQuery();
         query.setId(1L);
 
-        //List<PeopleDO> peopleDOList = peopleDAO.queryDOList(query);
+        //List<UserDO> peopleDOList = peopleDAO.queryDOList(query);
 
         Assert.isTrue(true);
     }

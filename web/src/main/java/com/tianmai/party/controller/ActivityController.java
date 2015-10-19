@@ -2,6 +2,7 @@ package com.tianmai.party.controller;
 
 import com.tianmai.party.domain.ActivityBO;
 import com.tianmai.party.domain.DetailActivityAccountBO;
+import com.tianmai.party.domain.RelaActivityUserBO;
 import com.tianmai.party.manager.read.ActivityQueryManager;
 import com.tianmai.party.manager.write.ActivityWriteManager;
 import com.tianmai.party.support.utils.DateUtil;
@@ -35,6 +36,9 @@ public class ActivityController {
 
         ActivityBO activityBO = activityQueryManager.getActivityBOById(Long.parseLong(id));
         modelMap.addAttribute("activity", activityBO);
+
+        List<RelaActivityUserBO> relaActivityUserBOList = activityQueryManager.getMemberList(Long.parseLong(id));
+        modelMap.addAttribute("memberList", relaActivityUserBOList);
 
         return PAGE_PATH_PRE + "activitydetail";
     }
@@ -106,4 +110,33 @@ public class ActivityController {
 
         return PAGE_PATH_PRE + "activityaccount";
     }
+
+    @RequestMapping(value = "/adminMember", method = RequestMethod.GET)
+    public String getAdminMember(@RequestParam("activityId") String activityId,
+                                 ModelMap modelMap){
+
+        ActivityBO activityBO = activityQueryManager.getActivityBOById(Long.parseLong(activityId));
+        modelMap.addAttribute("activity", activityBO);
+
+        List<RelaActivityUserBO> relaActivityUserBOList = activityQueryManager.getAppliedUserList(Long.parseLong(activityId));
+        modelMap.addAttribute("appliedUserList", relaActivityUserBOList);
+
+        return PAGE_PATH_PRE + "activityadmin";
+
+    }
+
+    @RequestMapping(value = "/doAuditPassMember")
+    public String doAuditMember(@RequestParam("activityId") String activityId,
+                                @RequestParam("userId") String userId){
+
+        activityWriteManager.auditPassMember(Long.parseLong(activityId), Long.parseLong(userId));
+
+
+
+        return "redirect:/activity/adminMember?activityId=" + activityId;
+
+
+    }
+
+
 }

@@ -1,7 +1,7 @@
 package com.tianmai.party.support.objbuilder;
 
 import com.tianmai.party.dal.dbobj.ActivityDO;
-import com.tianmai.party.dal.dbobj.RelaActivityPeopleDO;
+import com.tianmai.party.dal.dbobj.RelaActivityUserDO;
 import com.tianmai.party.domain.ActivityBO;
 
 import java.util.List;
@@ -14,7 +14,7 @@ public class ActivityBuilder {
 
     private ActivityDO activityDO;
 
-    private List<RelaActivityPeopleDO> relaActivityPeopleDOList;
+    private List<RelaActivityUserDO> relaActivityUserDOList;
 
 
     public ActivityBuilder fromActivityDO(ActivityDO activityDO){
@@ -22,8 +22,8 @@ public class ActivityBuilder {
         return this;
     }
 
-    public ActivityBuilder fromRelaActivityPeopleDOList(List<RelaActivityPeopleDO> relaActivityPeopleDOList){
-        this.relaActivityPeopleDOList = relaActivityPeopleDOList;
+    public ActivityBuilder fromRelaActivityPeopleDOList(List<RelaActivityUserDO> relaActivityUserDOList){
+        this.relaActivityUserDOList = relaActivityUserDOList;
         return this;
     }
 

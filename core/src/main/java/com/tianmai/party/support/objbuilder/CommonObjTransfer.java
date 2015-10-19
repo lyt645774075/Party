@@ -4,8 +4,12 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.tianmai.party.dal.dbobj.ActivityDO;
 import com.tianmai.party.dal.dbobj.DetailActivityAccountDO;
+import com.tianmai.party.dal.dbobj.RelaActivityUserDO;
+import com.tianmai.party.dal.dbobj.UserDO;
 import com.tianmai.party.domain.ActivityBO;
 import com.tianmai.party.domain.DetailActivityAccountBO;
+import com.tianmai.party.domain.RelaActivityUserBO;
+import com.tianmai.party.domain.UserBO;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
@@ -60,6 +64,66 @@ public class CommonObjTransfer {
         List<DetailActivityAccountBO> result = Lists.newArrayList();
         for(DetailActivityAccountDO dbobj : detailActivityAccountDOList){
             result.add(toBO(dbobj));
+        }
+
+        return result;
+    }
+
+
+    public static UserDO toDO(UserBO userBO){
+        Preconditions.checkNotNull(userBO);
+
+        UserDO userDO = new UserDO();
+        userDO.setId(userBO.getId());
+        userDO.setEmail(userBO.getEmail());
+        userDO.setPassword(userBO.getPassword());
+        userDO.setName(userBO.getName());
+        userDO.setGmtCreate(userBO.getGmtCreate());
+        userDO.setGmtModified(userBO.getGmtModified());
+
+        return userDO;
+
+    }
+
+    public static UserBO toBO(UserDO userDO){
+        Preconditions.checkNotNull(userDO);
+
+        UserBO userBO = new UserBO();
+        userBO.setId(userDO.getId());
+        userBO.setEmail(userDO.getEmail());
+        userBO.setPassword(userDO.getPassword());
+        userBO.setName(userDO.getName());
+        userBO.setGmtCreate(userDO.getGmtCreate());
+        userBO.setGmtModified(userDO.getGmtModified());
+
+        return userBO;
+
+    }
+
+    public static RelaActivityUserBO toBO(RelaActivityUserDO relaActivityUserDO){
+        Preconditions.checkNotNull(relaActivityUserDO);
+
+        RelaActivityUserBO relaActivityUserBO = new RelaActivityUserBO();
+        relaActivityUserBO.setId(relaActivityUserDO.getId());
+        relaActivityUserBO.setActivityId(relaActivityUserDO.getActivityId());
+        relaActivityUserBO.setActivityName(relaActivityUserDO.getActivityName());
+        relaActivityUserBO.setUserId(relaActivityUserDO.getUserId());
+        relaActivityUserBO.setUserName(relaActivityUserDO.getUserName());
+        relaActivityUserBO.setStatus(relaActivityUserDO.getStatus());
+        relaActivityUserBO.setGmtCreate(relaActivityUserDO.getGmtCreate());
+        relaActivityUserBO.setGmtModified(relaActivityUserDO.getGmtModified());
+
+        return relaActivityUserBO;
+    }
+
+    public static List<RelaActivityUserBO> toRAUBOList(List<RelaActivityUserDO> relaActivityUserDOList){
+        if(CollectionUtils.isEmpty(relaActivityUserDOList)){
+            return Lists.newArrayList();
+        }
+
+        List<RelaActivityUserBO> result = Lists.newArrayList();
+        for(RelaActivityUserDO relaActivityUserDO : relaActivityUserDOList){
+           result.add(toBO(relaActivityUserDO));
         }
 
         return result;

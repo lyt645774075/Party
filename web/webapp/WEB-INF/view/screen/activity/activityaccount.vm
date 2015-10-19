@@ -65,7 +65,11 @@
                             ${account.money}
                         </td>
                         <td>
-                            ${account.type}
+                            #if(${account.type} == 1)
+                                收入
+                            #elseif(${account.type} == 0)
+                                支出
+                            #end
                         </td>
                         <td>
                             <a href="#">${account.actionPeopleName}</a>

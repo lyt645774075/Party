@@ -22,6 +22,8 @@ public class ActivityBO {
 
     private Date gmtModified;
 
+    private Integer currentUserRole;
+
 
     public Long getId() {
         return id;
@@ -77,5 +79,13 @@ public class ActivityBO {
 
     public void setGmtModified(Date gmtModified) {
         this.gmtModified = gmtModified;
+    }
+
+    public Integer getCurrentUserRole() {
+        return currentUserRole;
+    }
+
+    public void setCurrentUserRole(Integer currentUserRole) {
+        this.currentUserRole = currentUserRole;
     }
 }
