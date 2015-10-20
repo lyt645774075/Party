@@ -30,15 +30,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="home">WithUS</a>
+        <a class="navbar-brand" href="/home">WalkWithUS</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse navbar-right">
-      <ul class="nav navbar-nav">
-        <li><a href="home">home</a></li>
-        <li><a href="login">login in</a></li>
-        <li><a href="register">register</a></li>
-        <li><a href="contact">contact</a></li>
-      </ul>
+      <div id="navbar" class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+              <li><a href="/home">home</a></li>
+              <li><a href="/user/login">login</a></li>
+              <li><a href="/user/register">register</a></li>
+              <li><a href="/contact">contact</a></li>
+          </ul>
+      </div><!--/.nav-collapse -->
+  </div>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
