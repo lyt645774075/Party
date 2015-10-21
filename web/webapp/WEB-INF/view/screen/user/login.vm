@@ -45,8 +45,9 @@
 
 <div class="site-wrapper">
 
-    <div class="site-wrapper-inner">
 
+
+    <div class="site-wrapper-inner" style="background-image: url(/img/home.jpg)">
 
         <div class="cover-container">
 
@@ -62,7 +63,7 @@
                     <label class="sr-only" for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-default">登录</button>
+                <button type="submit" class="btn btn-success">登录</button>
             </form>
 
 

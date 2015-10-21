@@ -8,9 +8,12 @@
 
     <http pattern="*.js" security="none"/>
     <http pattern="*.css" security="none"/>
+    <http pattern="*.jpg" security="none"/>
+    <http pattern="*.jpeg" security="none"/>
 
        <http auto-config="true">
 
+           <intercept-url pattern="/img/**/*.jpg" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/user/login*" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/user/register*" access="hasRole('ANONYMOUS')"/>
 

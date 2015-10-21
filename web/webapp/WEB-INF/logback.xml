@@ -24,7 +24,7 @@
     </appender>
 
 
-    <logger name="com.tianmai.party" level="debug" additivity="false">
+    <logger name="com.tianmai.party" level="debug" additivity="true">
         <appender-ref ref="PROJECT" />
     </logger>
 

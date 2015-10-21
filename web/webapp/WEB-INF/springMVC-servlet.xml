@@ -23,6 +23,8 @@
 				   location="/asset/css/"/>
 	<mvc:resources mapping="/js/**"
 				   location="/asset/js/"/>
+    <mvc:resources mapping="/img/**"
+                   location="/asset/img/"/>
 	<mvc:default-servlet-handler />
 	<context:component-scan base-package="com.tianmai.party.controller"/>
 
